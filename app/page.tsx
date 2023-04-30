@@ -6,17 +6,12 @@ import axios from 'axios';
 export default function Home() {
   const [zipCode, setZipCode] = useState('');
   const [addresses, setAddresses] = useState([]);
-
-  const getDistances = async (e:any) => {
+  console.log(addresses)
+  const getDistances = async (e: any) => {
     e.preventDefault();
 
     const response = await axios.post('/api/distance', {
       zipCode,
-      addresses: [
-        '1600 Amphitheatre Parkway, Mountain View, CA',
-        '1 Infinite Loop, Cupertino, CA',
-        '1 Hacker Way, Menlo Park, CA',
-      ],
     });
 
     setAddresses(response.data);
@@ -34,7 +29,7 @@ export default function Home() {
       <ul>
         {addresses.map((address, index) => (
           <li key={index}>
-            {address.address} - {address.distance.text}
+            {address.name} - {address.address} - {address.distance.text}
           </li>
         ))}
       </ul>
