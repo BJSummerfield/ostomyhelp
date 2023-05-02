@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { data } from '../../utils'
 import axios from 'axios';
 
-const chunkArray = (array, chunkSize: number) => {
+const chunkArray = (array: string[], chunkSize: number) => {
   const results = [];
   while (array.length) {
     results.push(array.splice(0, chunkSize));
@@ -11,8 +11,8 @@ const chunkArray = (array, chunkSize: number) => {
   return results;
 };
 
-const fetchDistances = async (zipCode, addresses, apiKey) => {
-  const destinations = addresses.join('|');
+const fetchDistances = async (zipCode: string, facilities: string[], apiKey: string) => {
+  const destinations = facilities.join('|');
   const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${zipCode}&destinations=${destinations}&units=imperial&key=${apiKey}`;
 
   const response = await axios.get(url);
@@ -27,39 +27,39 @@ const fetchDistances = async (zipCode, addresses, apiKey) => {
 
 export async function POST(req: Request) {
   const { zipCode } = await req.json()
-  const addresses = data
-
-  if (!zipCode || !addresses || !Array.isArray(addresses) || addresses.length === 0) {
+  const facilities = data
+ console.log(facilities)
+  if (!zipCode || !facilities || !Array.isArray(facilities) || facilities.length === 0) {
     return NextResponse.json({ message: 'Invalid input' }, { status: 400 });
   }
 
   try {
-    const apiKey = process.env.GOOGLE_API_KEY;
+    const apiKey = process.env.GOOGLE_API_KEY || ""
     const maxDestinations = 25;
-    const onlyAddress = addresses.map((address) => address.address)
-    const addressChunks = chunkArray(onlyAddress, maxDestinations);
+    const onlyAddressess = facilities.map((facility) => facility.address)
+    console.log(onlyAddressess)
+    const facilityChunks = chunkArray(onlyAddressess, maxDestinations);
 
     const distanceMatrixResults = await Promise.all(
-      addressChunks.map((addressChunk) => fetchDistances(zipCode, addressChunk, apiKey))
+      facilityChunks.map((facilityChunk) => fetchDistances(zipCode, facilityChunk, apiKey))
     );
 
-    const distances = distanceMatrixResults.flat().map((element: any, index: number) => ({
-      // address: addresses[index],
-      ...addresses[index],
-      distance: element.status === 'OK' ? element.distance : 'N/A',
+    const facilitiesWithDistance = distanceMatrixResults.flat().map((element: any, index: number) => ({
+      ...facilities[index],
+      distance: element.status === 'OK' ? element.distance : {text: "N/A"},
     }));
 
-    distances.sort((a: any, b: any) => {
-      if (a.distance === 'N/A') {
+    facilitiesWithDistance.sort((a: any, b: any) => {
+      if (a.distance.text === 'N/A') {
         return 1;
-      } else if (b.distance === 'N/A') {
+      } else if (b.distance.text === 'N/A') {
         return -1;
       } else {
         return a.distance.value - b.distance.value;
       }
     });
-
-    return NextResponse.json(distances);
+console.log(facilitiesWithDistance)
+    return NextResponse.json(facilitiesWithDistance);
   } catch (error) {
     return NextResponse.json({ message: 'Server error' }, { status: 500 });
   }
