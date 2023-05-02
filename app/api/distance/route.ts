@@ -28,7 +28,7 @@ const fetchDistances = async (zipCode: string, facilities: string[], apiKey: str
 export async function POST(req: Request) {
   const { zipCode } = await req.json()
   const facilities = data
- console.log(facilities)
+
   if (!zipCode || !facilities || !Array.isArray(facilities) || facilities.length === 0) {
     return NextResponse.json({ message: 'Invalid input' }, { status: 400 });
   }
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     const apiKey = process.env.GOOGLE_API_KEY || ""
     const maxDestinations = 25;
     const onlyAddressess = facilities.map((facility) => facility.address)
-    console.log(onlyAddressess)
+
     const facilityChunks = chunkArray(onlyAddressess, maxDestinations);
 
     const distanceMatrixResults = await Promise.all(
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
         return a.distance.value - b.distance.value;
       }
     });
-console.log(facilitiesWithDistance)
+
     return NextResponse.json(facilitiesWithDistance);
   } catch (error) {
     return NextResponse.json({ message: 'Server error' }, { status: 500 });
