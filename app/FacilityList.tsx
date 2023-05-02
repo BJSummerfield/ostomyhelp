@@ -20,6 +20,9 @@ const InfoItem = ({ header, value }: InfoItemProps) => {
 }
 
 export default function FacilityList({ facility }: FacilityListProps) {
+  const formattedAddress = facility.address.replace(/ /g, '+');
+  const mapsUrl = `https://www.google.com/maps?q=${formattedAddress}`;
+
   return (
     <div className="bg-white overflow-hidden shadow rounded-lg">
       <div className="px-4 py-5 sm:p-6">
@@ -27,9 +30,15 @@ export default function FacilityList({ facility }: FacilityListProps) {
           <div>
             <h3 className="text-xl leading-6 font-medium text-gray-900">{facility.name}</h3>
             <div className="mt-1 max-w-xl text-sm text-gray-500">
-              <p>{facility.address}</p>
-              <p>{facility.phone}</p>
-              <p>{facility.distance.text}</p>
+            <a href={mapsUrl} target="_blank" className="text-blue-500 underline visited:text-purple-500">
+              {facility.address}
+            </a>
+            <p>
+              <a href={`tel:${facility.phone}`} className="text-indigo-600 hover:text-indigo-900">
+                {facility.phone}
+              </a>
+            </p>
+            <p>{facility.distance.text}</p>
             </div>
             {/* Add the image below the outpatient information here */}
           </div>
