@@ -34,7 +34,7 @@ export default function FacilityList({ facility }: FacilityListProps) {
               {facility.address}
             </a>
             <p>
-              <a href={`tel:${facility.phone}`} className="text-indigo-600 hover:text-indigo-900">
+              <a href={`tel:${facility.phone}`} className="text-blue-500 hover:text-indigo-900">
                 {facility.phone}
               </a>
             </p>

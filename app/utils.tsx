@@ -24,7 +24,7 @@ export const data = [
   {
     name: "Northwestern Medicine - Lake Forest Hospital Wound Center",
     outPatient: true,
-    address: "300 Randall Road, Geneva IL",
+    address: "1000 N. Westmoreland Road, 1st Floor, Lake Forest IL",
     phone: "847-535-7600",
     facility: Facility.Hospital,
     persistantAppt: "Yes",
@@ -154,7 +154,7 @@ export const data = [
     additionalService: null
   },
   {
-    name: "Advocate Sherman",
+    name: "Advocate Sherman Hospital",
     outPatient: true,
     address: "1425 N. Randall Road, Elgin IL",
     phone: "224-783-3450",
@@ -165,7 +165,7 @@ export const data = [
     additionalService: null
   },
   {
-    name: "Advocate Aurora",
+    name: "Advocate Aurora Good Shepherd Hospital",
     outPatient: true,
     address: "450 W. Highway22, Barrington IL",
     phone: "847-842-4372",
@@ -176,7 +176,7 @@ export const data = [
     additionalService: null
   },
   {
-    name: "Advocate Good Samaritan",
+    name: "Advocate Good Samaritan Wound Care",
     outPatient: false,
     address: "3815 Highland Ave, Downers Grove IL",
     phone: "630-275-4303",
@@ -187,7 +187,7 @@ export const data = [
     additionalService: "Accepts supply donations"
   },
   {
-    name: "Advocate Lutheran General",
+    name: "Advocate Lutheran General Hospital",
     outPatient: true,
     address: "1775 Dempster st. Park Ridge IL",
     phone: "847-723-8815",
