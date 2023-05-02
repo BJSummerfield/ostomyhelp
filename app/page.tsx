@@ -1,5 +1,4 @@
 'use client'
-// pages/index.js
 import { useState } from 'react';
 import axios from 'axios';
 import FacilityList from './FacilityList'; 
