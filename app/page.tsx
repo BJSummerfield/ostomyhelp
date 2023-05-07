@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <div className="bg-cover bg-center h-96" style={{ backgroundImage: 'url(/dr-nurse.jpg)' }}></div>
+      <div className="bg-cover bg-center h-96" style={{ backgroundImage: 'url(/banner.jpg)' }}></div>
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Enter your zip code</h2>

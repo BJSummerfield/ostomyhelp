@@ -7,8 +7,9 @@ enum Facility {
 enum HomeServices {
   "noClinic" = "No, Clinic only",
   "homeHealth" = "Yes, Home Health",
-  "teleHealth" = "Yes, Telehealth",
+  "teleHealth" = "Yes, via Telehealth",
 }
+
 export const data = [
   {
     name: "Northwestern Health Porter",
@@ -19,7 +20,7 @@ export const data = [
     persistantAppt: "Yes",
     homeServices: HomeServices.teleHealth,
     apptRequired: "Physician Order",
-    additionalService: "Foot Care, Nephrostomy tube site care weekly, SP, G tube care and replacements etc.", 
+    additionalService: "Foot Care, Nephrostomy tube site care, G-tube care", 
   },
   {
     name: "Northwestern Medicine - Lake Forest Hospital Wound Center",
@@ -40,7 +41,7 @@ export const data = [
     facility: Facility.Hospital,
     persistantAppt: "Yes",
     homeServices: HomeServices.noClinic,
-    apptRequired: "No Physician Order Needed (For Simple Ostomy Care including Skin Issues",
+    apptRequired: "No physician order needed (for simple ostomy care including skin issues)",
     additionalService: null, 
   },
   {
@@ -85,7 +86,7 @@ export const data = [
     persistantAppt: "Yes",
     homeServices: HomeServices.noClinic,
     apptRequired: "Physician Order",
-    additionalService: "Accepts supply donations", 
+    additionalService: "Sees urology patients only, accepts supply donations", 
   },
   {
     name: "NorthShore Evanston Hospital",
@@ -128,8 +129,8 @@ export const data = [
     facility: Facility.NonClinic,
     persistantAppt: "Yes",
     homeServices: HomeServices.teleHealth,
-    apptRequired: "Patient can refer self and then obtain a physician order if possible",
-    additionalService: "Intimacy counseling, diet education all ostomy education and care, Incontinence Kegel education"
+    apptRequired: "Patient can refer self and then obtain a physician order",
+    additionalService: "Intimacy counseling, diet education, all ostomy education and care, incontinence/kegel education"
   },
   {
     name: "Community Hospital",
@@ -183,13 +184,13 @@ export const data = [
     facility: Facility.Hospital,
     persistantAppt: "No",
     homeServices: HomeServices.noClinic,
-    apptRequired: "A recent ostomy surgery at this location & a physician with privileges at this facility/location",
+    apptRequired: "A recent ostomy surgery at this location and an order from a physician with privileges at this facility/location",
     additionalService: "Accepts supply donations"
   },
   {
     name: "Advocate Lutheran General Hospital",
     outPatient: true,
-    address: "1775 Dempster st. Park Ridge IL",
+    address: "1775 Dempster St. Park Ridge IL",
     phone: "847-723-8815",
     facility: Facility.Hospital,
     persistantAppt: "Yes",

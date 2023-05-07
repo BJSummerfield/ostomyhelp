@@ -30,25 +30,26 @@ export default function FacilityList({ facility }: FacilityListProps) {
           <div>
             <h3 className="text-xl leading-6 font-medium text-gray-900">{facility.name}</h3>
             <div className="mt-1 max-w-xl text-sm text-gray-500">
-            <a href={mapsUrl} target="_blank" className="text-blue-500 underline visited:text-purple-500">
-              {facility.address}
-            </a>
-            <p>
-              <a href={`tel:${facility.phone}`} className="text-blue-500 hover:text-indigo-900">
-                {facility.phone}
+              <a href={mapsUrl} target="_blank" className="text-blue-500 underline visited:text-purple-500">
+                {facility.address}
               </a>
-            </p>
-            <p>{facility.distance.text}</p>
+              <p>
+                <a href={`tel:${facility.phone}`} className="text-blue-500 hover:text-indigo-900">
+                  {facility.phone}
+                </a>
+              </p>
+              <p>{facility.distance.text}</p>
             </div>
-            {/* Add the image below the outpatient information here */}
+            <br />
+            <InfoItem header={"Facility type"} value={facility.facility} />
+            <InfoItem header={"Additional Services"} value={facility.additionalService || "N/A"} />
           </div>
           <div>
-            <InfoItem header={"Facility"} value={facility.facility} />
-            <InfoItem header={"Outpatient"} value={facility.outPatient ? 'Yes' : 'No'} />
-            <InfoItem header={"Persistent Appointment"} value={facility.persistantAppt} />
-            <InfoItem header={"Home Services"} value={facility.homeServices} />
+            <h3 className="text-xl leading-6 font-medium text-gray-900">Appointments types available</h3>
+            <InfoItem header={"Outpatient ostomy"} value={facility.outPatient ? 'Yes' : 'No'} />
+            <InfoItem header={"Home care"} value={facility.homeServices} />
+            <br />
             <InfoItem header={"Appointment Requirements"} value={facility.apptRequired} />
-            <InfoItem header={"Additional Services"} value={facility.additionalService || "N/A"} />
           </div>
         </div>
       </div>

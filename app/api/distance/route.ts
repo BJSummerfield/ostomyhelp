@@ -29,7 +29,7 @@ export async function POST(req: Request) {
   const { zipCode } = await req.json()
   const facilities = data
 
-  if (!zipCode || !facilities || !Array.isArray(facilities) || facilities.length === 0) {
+  if (!zipCode || !facilities || !Array.isArray(facilities) || facilities.length === 0 || zipCode.length != 5) {
     return NextResponse.json({ message: 'Invalid input' }, { status: 400 });
   }
 
