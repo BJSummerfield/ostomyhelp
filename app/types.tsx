@@ -6,6 +6,9 @@ export interface Facility{
   facility: string;
   persistantAppt: string;
   homeServices: string;
+  clinic: boolean;
+  homeCare: boolean;
+  teleHealth: boolean;
   apptRequired: string;
   additionalService?: string;
   distance: Distance

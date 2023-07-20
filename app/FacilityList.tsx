@@ -11,9 +11,9 @@ interface FacilityListProps {
 const InfoItem = ({ header, value }: InfoItemProps) => {
   return (
     <>
-      <div className="flex flex-row gap-4">
-        <div className="font-semibold mt-2">{header}:</div>
-        <div className="mt-2">{value}</div>
+      <div className="flex flex-row gap-4 pt-1">
+        <div className="font-semibold">{header}:</div>
+        <div>{value}</div> 
       </div>
     </>
   )
@@ -24,7 +24,7 @@ export default function FacilityList({ facility }: FacilityListProps) {
   const mapsUrl = `https://www.google.com/maps?q=${formattedAddress}`;
 
   return (
-    <div className="bg-white overflow-hidden shadow rounded-lg">
+    <div className="bg-white overflow-hidden shadow-2xl rounded-lg">
       <div className="px-4 py-5 sm:p-6">
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -45,9 +45,10 @@ export default function FacilityList({ facility }: FacilityListProps) {
             <InfoItem header={"Additional Services"} value={facility.additionalService || "N/A"} />
           </div>
           <div>
-            <h3 className="text-xl leading-6 font-medium text-gray-900">Appointments types available</h3>
-            <InfoItem header={"Outpatient ostomy"} value={facility.outPatient ? 'Yes' : 'No'} />
-            <InfoItem header={"Home care"} value={facility.homeServices} />
+            <h3 className="text-xl leading-6 font-medium pb-5 text-gray-900">Appointments types available</h3>
+            <InfoItem header={"Clinic"} value={facility.clinic ? 'Yes' : 'No'} />
+            <InfoItem header={"Home Care"} value={facility.homeCare ? 'Yes' : 'No'} />
+            <InfoItem header={"Tele-Health"} value={facility.homeServices? 'Yes' : 'No'} />
             <br />
             <InfoItem header={"Appointment Requirements"} value={facility.apptRequired} />
           </div>

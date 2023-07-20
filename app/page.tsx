@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import axios from 'axios';
-import FacilityList from './FacilityList'; 
+import FacilityList from './FacilityList';
 import { Facility } from './types';
 
 export default function Home() {
@@ -19,23 +19,29 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="bg-cover bg-center h-96" style={{ backgroundImage: 'url(/banner.jpg)' }}></div>
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Enter your zip code</h2>
+    <div className="min-h-screen w-full h-full" style={{ backgroundImage: 'url(/banner.jpg)' }}>
+      <div className='p-8 text-center'>
+        <div className='max-w-2xl mx-auto py-4 bg-white rounded-lg shadow-2xl'>
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-5xl font-semibold text-indigo-600 tracking-wide uppercase">FindmyNurse</h1>
+            <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase mt-2">a Chicago land Ostomy resource</h2>
+          </div>
+          <h2 className="text-base pt-8 font-semibold text-indigo-600 tracking-wide uppercase">Enter your zip code</h2>
           <form onSubmit={getDistances}>
             <input
-              className="text-center w-1/12 h-10 text-2xl mt-5 focus:ring-indigo-500 focus:border-indigo-500 block mx-auto shadow-sm sm:test-sm border-gray-300 rounded-md"
+              className="text-center h-10 text-2xl mt-2 border-2 focus:border-indigo-800 block mx-auto border-indigo-500 rounded-md"
               type="text"
               pattern="[0-9]*"
               value={zipCode}
               onChange={(e) => setZipCode(e.target.value)}
               required
             />
-            <button type="submit">Submit</button>
+            <button className="bg-indigo-600 p-2 rounded-md m-2 text-white" type="submit">Submit</button>
           </form>
+          <p className="mt-2 text-sm text-gray-500">*Disclaimer - This is a resource, please check with your personal insurance to verify coverage/pre-authorization requirements prior to making an appointment.</p>
         </div>
+      </div>
+      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         {
           facilities ?
             <div className="mt-4 grid grid-cols-1 gap-4">
