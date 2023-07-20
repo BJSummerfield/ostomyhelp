@@ -24,7 +24,7 @@ export default function Home() {
         <div className='max-w-2xl mx-auto py-4 bg-white rounded-lg shadow-2xl'>
           <div className="flex flex-col items-center justify-center">
             <h1 className="text-5xl font-semibold text-indigo-600 tracking-wide uppercase">FindmyNurse</h1>
-            <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase mt-2">a Chicago land Ostomy resource</h2>
+            <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase mt-2">a Chicagoland ostomy resource</h2>
           </div>
           <h2 className="text-base pt-8 font-semibold text-indigo-600 tracking-wide uppercase">Enter your zip code</h2>
           <form onSubmit={getDistances}>
