@@ -24,12 +24,12 @@ export default function FacilityList({ facility }: FacilityListProps) {
   const mapsUrl = `https://www.google.com/maps?q=${formattedAddress}`;
 
   return (
-    <div className="bg-white overflow-hidden shadow-2xl rounded-lg">
+    <div className="bg-white overflow-hidden shadow-xl rounded-lg mx-3">
       <div className="px-4 py-5 sm:p-6">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <h3 className="text-xl leading-6 font-medium text-gray-900">{facility.name}</h3>
-            <div className="mt-1 max-w-xl text-sm text-gray-500">
+            <div className="pt-1 max-w-xl text-sm text-gray-500">
               <a href={mapsUrl} target="_blank" className="text-blue-500 underline visited:text-purple-500">
                 {facility.address}
               </a>
@@ -45,7 +45,7 @@ export default function FacilityList({ facility }: FacilityListProps) {
             <InfoItem header={"Additional Services"} value={facility.additionalService || "N/A"} />
           </div>
           <div>
-            <h3 className="text-xl leading-6 font-medium pb-5 text-gray-900">Appointments types available</h3>
+            <h3 className="text-xl leading-6 font-medium py-5 md:py-0 text-gray-900">Appointments types available</h3>
             <InfoItem header={"Clinic"} value={facility.clinic ? 'Yes' : 'No'} />
             <InfoItem header={"Home Care"} value={facility.homeCare ? 'Yes' : 'No'} />
             <InfoItem header={"Tele-Health"} value={facility.homeServices? 'Yes' : 'No'} />
