@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100" >
-        <div className="flex items-center justify-center bg-cover bg-center h-96 " style={{ backgroundImage: 'url(/banner.jpg)' }}>
+      <div className="flex items-center justify-center bg-cover bg-center h-96 " style={{ backgroundImage: 'url(/banner.jpg)' }}>
         <div className='p-8 text-center'>
           <div className='max-w-2xl mx-auto py-4 bg-white rounded-lg shadow-2xl'>
             <div className="flex flex-col items-center justify-center">
@@ -40,21 +40,26 @@ export default function Home() {
               <button className="bg-indigo-600 p-2 rounded-md m-2 text-white" type="submit">Submit</button>
             </form>
             <p className="mt-2 text-sm text-gray-500">*This is a resource, please check with your personal insurance to verify coverage/pre-authorization requirements prior to making an appointment.</p>
+            <p className="text-gray-800">Providers please &nbsp; 
+              <a target="_blank" className="text-blue-500 underline visited:text-purple-500" href="https://docs.google.com/forms/d/e/1FAIpQLSep0S-ilIHhrZbhfdXqhoXAk_AfOCwr3XrmpIKnuF4v6EiH4w/viewform?usp=sf">
+                follow this link
+              </a>
+            </p>
           </div>
         </div>
-        </div>
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          {
-            facilities ?
-              <div className="mt-4 grid grid-cols-1 gap-4">
-                {facilities.map((facility: Facility, index: number) => (
-                  <FacilityList key={index} facility={facility} />
-                ))}
-              </div>
-              : null
-          }
-        </div>
       </div>
-      );
+      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        {
+          facilities ?
+            <div className="mt-4 grid grid-cols-1 gap-4">
+              {facilities.map((facility: Facility, index: number) => (
+                <FacilityList key={index} facility={facility} />
+              ))}
+            </div>
+            : null
+        }
+      </div>
+    </div>
+  );
 }
 
