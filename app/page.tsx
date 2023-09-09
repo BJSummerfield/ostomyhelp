@@ -49,11 +49,12 @@ export default function Home() {
               />
               <button className="bg-indigo-600 p-2 rounded-md m-2 text-white" type="submit">Submit</button>
             </form>
-            <p className="mt-2 text-sm text-gray-500">*This is a resource, please check with your personal insurance to verify coverage/pre-authorization requirements prior to making an appointment.</p>
+            <p className="mt-2 text-sm text-gray-500">*This is a resource, please check with your personal insurance to verify coverage/pre-authorization requirements prior to making an appointment. This information is updated as often as possible.</p>
             <p className="text-gray-800">Providers please &nbsp;
               <a target="_blank" className="text-blue-500 underline visited:text-purple-500" href="https://docs.google.com/forms/d/e/1FAIpQLSep0S-ilIHhrZbhfdXqhoXAk_AfOCwr3XrmpIKnuF4v6EiH4w/viewform?usp=sf">
                 follow this link
               </a>
+              &nbsp; to add or change your facilities information.
             </p>
           </div>
         </div>

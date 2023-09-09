@@ -46,7 +46,7 @@ export default function FacilityList({ facility }: FacilityListProps) {
           </div>
           <div>
             <h3 className="text-xl leading-6 font-medium py-5 md:py-0 text-gray-900">Appointments types available</h3>
-            <InfoItem header={"Clinic"} value={facility.clinic ? 'Yes' : 'No'} />
+            <InfoItem header={"Outpatient Clinic"} value={facility.clinic ? 'Yes' : 'No'} />
             <InfoItem header={"Home Care"} value={facility.homeCare ? 'Yes' : 'No'} />
             <InfoItem header={"Tele-Health"} value={facility.homeServices? 'Yes' : 'No'} />
             <br />
