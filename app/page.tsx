@@ -8,6 +8,7 @@ export default function Home() {
   const [zipCode, setZipCode] = useState('');
   const [facilities, setFacilities] = useState<Facility[]>([]);
   const [loading, setLoading] = useState(false);
+  const [isValidZip, setIsValidZip] = useState(false);
 
   const getDistances = async (e: any) => {
     e.preventDefault();
@@ -42,12 +43,20 @@ export default function Home() {
               <input
                 className="text-center h-10 text-2xl mt-2 border-2 focus:border-indigo-800 block mx-auto border-indigo-500 rounded-md"
                 type="text"
-                pattern="[0-9]*"
+                pattern="[1-9][0-9]{4}"
                 value={zipCode}
-                onChange={(e) => setZipCode(e.target.value)}
+                maxLength={5}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  const number = Number(val)
+                  const isInRange = !isNaN(number) && 9999 < number && number < 100000
+                  setZipCode(val);
+
+                  setIsValidZip(isInRange);
+                }}
                 required
               />
-              <button className="bg-indigo-600 p-2 rounded-md m-2 text-white" type="submit">Submit</button>
+              <button className={`${isValidZip ? "bg-indigo-600" : "bg-gray-500"} p-2 rounded-md m-2 text-white`} type="submit" disabled={!isValidZip}>Submit</button>
             </form>
             <p className="mt-2 text-sm text-gray-500">*This is a resource, please check with your personal insurance to verify coverage/pre-authorization requirements prior to making an appointment. This information is updated as often as possible.</p>
             <p className="text-gray-800">Providers please &nbsp;
